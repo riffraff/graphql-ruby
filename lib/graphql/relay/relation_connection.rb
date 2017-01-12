@@ -39,7 +39,7 @@ module GraphQL
 
       # Apply cursors to edges
       def sliced_nodes
-        @sliced_nodes ||= nodes.offset(starting_offset)
+        @sliced_nodes ||= starting_offset == 0 ? nodes : nodes.offset(starting_offset)
       end
 
       def offset_from_cursor(cursor)
